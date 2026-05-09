@@ -5,10 +5,15 @@ tener sobrerepresentación de ciertas estaciones (que me imagino que será un da
 preliminares 3- Registros no validos, para formar la variable respuesta ocupe todos los datos, ya que solo hay una opción por día, para mejor entendimiento pueden 
 revisar el excel MP2,5.
 
--> Los datos de temperatura, humedad relativa, velocidad del viento y presión atmosferica pueden sacarlos desde la página del sinca para su descripción
+-> Los datos de CO pasa igual qu el mp2,5 tienen tres  tipos de registros y yo mezcle todos para tener menos valores vacios.
+
+-> Deje la variable mes, porque siento que puede tener incidencia de que en invierno hace más frio, etc.
+
+-> la columna fecha es el id, por lo que no hay que incluirlo en el modelo, sino generaria ruido.
+
+-> Los datos de temperatura, humedad relativa y velocidad del viento pueden sacarlos desde la página del sinca para su descripción
 también adjunte todos los excel de cada uno para un mayor entendimiento.
 
--> El tema debe ser algo como predecir los niveles de MP2,5 para efectos de tomar medidas de salud pública preventivas, algo así, ya que el mp2,5 tiene incidencia
-con problemas pulmonares por lo que leí
+-> El tema debe ser algo como ¿qué factores climaticos inciden en urgencias respiratorias? 
 
 -> Dejar en el data set comas para decimales y puntos para miles, para no tener problemas en el r
