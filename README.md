@@ -10,3 +10,5 @@ también adjunte todos los excel de cada uno para un mayor entendimiento.
 
 -> El tema debe ser algo como predecir los niveles de MP2,5 para efectos de tomar medidas de salud pública preventivas, algo así, ya que el mp2,5 tiene incidencia
 con problemas pulmonares por lo que leí
+
+-> Dejar en el data set comas para decimales y puntos para miles, para no tener problemas en el r
