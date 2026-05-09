@@ -20,4 +20,4 @@ también adjunte todos los excel de cada uno para un mayor entendimiento.
 
 -> Urgencias respiratorias es el promedio semanal
 
--> Precipitaciones promedio mensual sacado de https://climatologia.meteochile.gob.cl/application/historico/aguaCaidaHistoricaMensual/450004
+-> Precipitaciones dato diario sacado de https://explorador.cr2.cl/ que son datos oficiales de la dIRECCIÓN METEOROLÓGICA DE CHILE.
