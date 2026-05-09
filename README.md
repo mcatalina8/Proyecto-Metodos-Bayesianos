@@ -17,3 +17,5 @@ también adjunte todos los excel de cada uno para un mayor entendimiento.
 -> El tema debe ser algo como ¿qué factores climaticos inciden en urgencias respiratorias? 
 
 -> Dejar en el data set comas para decimales y puntos para miles, para no tener problemas en el r
+
+-> Urgencias respiratorias es el promedio semanal
