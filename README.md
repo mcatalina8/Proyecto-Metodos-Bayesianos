@@ -5,3 +5,6 @@ preliminares 3- Registros no validos, para formar la variable respuesta ocupe to
 revisar el excel MP2,5.
 -> Los datos de temperatura, humedad relativa, velocidad del viento y presión atmosferica pueden sacarlos desde la página del sinca para su descripción
 también adjunte todos los excel de cada uno para un mayor entendimiento.
+
+-> El tema debe ser algo como predecir los niveles de MP2,5 para efectos de tomar medidas de salud pública preventivas, algo así, ya que el mp2,5 tiene incidencia
+con problemas pulmonares por lo que leí
