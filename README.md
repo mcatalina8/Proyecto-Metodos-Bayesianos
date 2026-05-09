@@ -19,3 +19,5 @@ también adjunte todos los excel de cada uno para un mayor entendimiento.
 -> Dejar en el data set comas para decimales y puntos para miles, para no tener problemas en el r
 
 -> Urgencias respiratorias es el promedio semanal
+
+-> Precipitaciones promedio mensual sacado de https://climatologia.meteochile.gob.cl/application/historico/aguaCaidaHistoricaMensual/450004
