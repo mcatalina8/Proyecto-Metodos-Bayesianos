@@ -1,123 +1,105 @@
-library(ggplot2)
 library(corrplot)
 library(rio)
 library(dplyr)
 library(qpcR)
 ### importar datos
-mp25 <- import(file.choose())
-viento <- import(file.choose())
-hum <- import(file.choose())
-temp <- import(file.choose())
-presion <- import(file.choose())
-casos <- import(file.choose())
-co <- import(file.choose())
-### promedios diarios como variables diarias
-mp25_diarios <- mp25[!duplicated(mp25$`Fecha única`),]
-viento_diarios <- viento[!duplicated(viento$`Fecha única`),]
-hum_diarios <- hum[!duplicated(hum$`Fecha unica`),]
-temp_diarios <- temp[!duplicated(temp$`Fecha unica`),]
-presion_diarios <- presion[!duplicated(presion$`Fecha unica`),]
-casos_diarios <- casos$Promedio_Diario
-### ver que tengan igual tamaño
-dim(mp25_diarios)
-dim(viento_diarios)
-dim(hum_diarios)
-dim(temp_diarios)
-dim(presion_diarios)
-length(casos_diarios[367:4020]) ### quitar año 2015
-co <- co[1:3654] ##hacer que co tenga igual cant. de filas
-dim(co) 
-str(co) ### cambiamos chr a num
-co <- co %>% mutate(across(c(`Registros validados`,
-                             `Registros preliminares`,
-                             `Registros no validados`),~ as.numeric(gsub(",", ".", .))))
-str(co)
-### usamos "preliminares" y "no validados" como "validados" en lugar de NA
-co <- co%>%mutate(`Registros validados`=coalesce(`Registros validados`,
-                                                 `Registros preliminares`,
-                                               `Registros no validados`))
+datos <- import(file.choose())
 
-### armar dataframe
-datos <- data.frame(
-  fecha = mp25_diarios$`Fecha única`,
-  mp25 = mp25_diarios$Promedio,
-  viento = viento_diarios$Promedio,
-  hum = hum_diarios$Promedio,
-  temp = temp_diarios$Promedio,
-  presion = presion_diarios$Promedio,
-  casos = casos_diarios[367:4020], 
-  co = co$`Registros validados`
-)
-
-datos <- na.omit(datos) ### quitamos NA
-dim(datos)
-
-### resumen de estadísticas
+### Resumen
 summary(datos)
-### histogramas
+
+### Histogramas ###
+
 ### Urgencias respiratorias
-hist(datos$casos,freq=FALSE,
+hist(datos$Urgencias_respiratorias,freq=FALSE,
      xlab = "Casos diarios",
      ylab="Densidad",
      main="Distribución de Urgencias Respiratorias en Coyhaique",
      col="coral3")
 ### MP2.5
-hist(datos$mp25,freq=FALSE,
+hist(datos$MP25,freq=FALSE,
      xlab = expression("MP 2.5 diario ("*mu*"g/m"^3*")"),
      ylab="Densidad",
      main=expression("Distribución de MP 2.5 diario("*mu*"g/m"^3*")"),
      col="darkred")
-### Matriz de correlación
-vars <- datos[,c("mp25","hum","presion","viento","temp","casos","co")]
+
+### Matriz de correlación ###
+
+vars <- datos[,c("MP25","Humedad_relativa","Precipitaciones","Velocidad_viento","Temperatura","Urgencias_respiratorias","CO")]
 matriz <- cor(vars,use="pairwise.complete.obs")
 corrplot(matriz,addCoef.col="black")
 ### mayor correlación con casos respiratorios: temp>c0>mp2.5
-### diagrama de dispersión
-plot(datos$mp25, datos$casos,
-     xlab = expression("MP 2.5 diario ("*mu*"g/m"^3*")"),
+
+### Diagramas de dispersión ###
+
+### MP2.5 vs Casos
+plot(datos$MP25, datos$Urgencias_respiratorias,
+     xlab = expression("MP 2.5("*mu*"g/m"^3*")"),
      ylab = "Casos de urgencia",
      main = "MP2.5 vs Urgencias Respiratorias",
      pch = 19,
      col = "darkcyan")
-plot(datos$co, datos$casos,
-     xlab = expression("MP 2.5 diario ("*mu*"g/m"^3*")"),
+
+### CO vs Casos
+plot(datos$CO, datos$Urgencias_respiratorias,
+     xlab ="CO(ppm)",
      ylab = "Casos de urgencia",
-     main = "MP2.5 vs Urgencias Respiratorias",
+     main = "Concentraciones de CO vs Urgencias Respiratorias",
      pch = 19,
      col = "darkgreen")
-plot(datos$temp,datos$casos,
+
+### Temperatura vs Casos
+plot(datos$Temperatura,datos$Urgencias_respiratorias,
      xlab="Temperatura(°C)",
      ylab="Casos de urgencia",
      main="Temperaura vs Urgencias Respiratorias",
      pch=19,
      col="brown")
-### boxplot de urgencias por estacionalidad
-datos$fecha <- as.Date(as.character(datos$fecha),
+
+### Boxplot de Urgencias por Estacionalidad
+datos$estacion <- ifelse(datos$Mes %in% c("Diciembre","Enero","Febrero"), "Verano",
+                         ifelse(datos$Mes %in% c("Marzo","Abril","Mayo"), "Otoño",
+                                ifelse(datos$Mes %in% c("Junio","Julio","Agosto"),
+                                       "Invierno",
+                                       "Primavera")))
+
+boxplot(Urgencias_respiratorias ~ estacion,
+        data = datos,
+        col = c("darkcyan","darkgoldenrod2",
+                "coral1","chartreuse3"),
+        xlab = "Estación del año",
+        ylab = "Urgencias respiratorias",
+        main = "Casos respiratorios según estacionalidad")
+
+### Series de tiempo ###
+datos$`Fecha/ID` <- as.Date(as.character(datos$`Fecha/ID`),
                        format = "%y%m%d")
-datos$mes <- format(datos$fecha, "%m")
-datos$estacion <- ifelse(datos$mes %in% c("12","01","02"), "Verano",
-                         ifelse(datos$mes %in% c("03","04","05"), "Otoño",
-                                ifelse(datos$mes %in% c("06","07","08"), "Invierno","Primavera")))
-boxplot(casos~estacion,data=datos,
-        col=c("darkcyan","darkgoldenrod2","coral1","chartreuse3"),
-        xlab="Estación del año",
-        ylab="Urgencias respiratorias",
-        main="Casos respiratorios según estacionalidad")
-### series de tiempo
-plot(datos$fecha,datos$casos,
+datos$mes <- format(datos$`Fecha/ID`, "%m")
+### Urgencias Respiratorias
+plot(datos$`Fecha/ID`,datos$Urgencias_respiratorias,
      type = "l",
      col = "red",
      xlab = "Fecha",
      ylab = "Casos diarios",
      main = "Evolución temporal urgencias respiratorias")
-plot(datos$fecha,datos$mp25,
+### MP2.5
+plot(datos$`Fecha/ID`,datos$MP25,
      type="l",
      col="coral3",
      xlab="Fecha",
      ylab="Concentración de MP2.5",
      main="Evolución temporal MP2.5")
-acf(datos$casos,
+### CO
+plot(datos$`Fecha/ID`,datos$CO,
+     type="l",
+     col="coral1",
+     xlab="Fecha",
+     ylab="Concentración de MP2.5",
+     main="Evolución temporal MP2.5")
+
+### Autocorrelación ###
+acf(datos$Urgencias_respiratorias,
     main = "Autocorrelación de urgencias respiratorias",
     col = "darkblue",
     lwd = 2)
-### se observa una dependencia temporal
+### se observa una dependencia temporal(las urgencias de hoy dependen de las de ayer)
