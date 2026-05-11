@@ -1,5 +1,12 @@
-<a href="https://ibb.co/v69pv49z"><img src="https://i.ibb.co/fzJfGdJ0/PONTIFICIA-UNIVERSIDAD-CAT-LICA-DE-CHILE-FACULTAD-DE-MATEM-TICAS-DEPARTAMENTO-DE-ESTAD-STICA.png" alt="PONTIFICIA-UNIVERSIDAD-CAT-LICA-DE-CHILE-FACULTAD-DE-MATEM-TICAS-DEPARTAMENTO-DE-ESTAD-STICA" border="0" /></a>
 
+<style>
+img {
+  display: block;       /* Make image a block element */
+  margin: auto;         /* Auto left/right margins center it */
+  width: 50%;           /* Optional: control size */
+}
+</style>
+<img src="https://i.ibb.co/fzJfGdJ0/PONTIFICIA-UNIVERSIDAD-CAT-LICA-DE-CHILE-FACULTAD-DE-MATEM-TICAS-DEPARTAMENTO-DE-ESTAD-STICA.png" alt="PONTIFICIA-UNIVERSIDAD-CAT-LICA-DE-CHILE-FACULTAD-DE-MATEM-TICAS-DEPARTAMENTO-DE-ESTAD-STICA" border="0" />
 # Datos utilizados
 
 ## Datos de Sistema de Información Nacional de Calidad del Aire
