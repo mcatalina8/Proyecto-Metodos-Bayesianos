@@ -9,49 +9,47 @@ output:
 
 # Contexto del problema
 
-Chile es uno de los paises con la peor calidad de aire en latinoamerica. Solo en Marzo el Informa Mundial Anual del 2025 dirigido por IQAir, una empresa tecnológica suiza especializada en la medición, monitoreo y purificación del aire, sobre la calidad del aire en el mundo, nombro a Santiago como el tercer país con los indices más altos de contaminantes como el MP2.5(particulas con tamaño menor a 2.5). Además de contener a 5 de los peores países de Latinoamerca.(Equipo EMOL, 2026)
+Chile es uno de los países con peor calidad del aire de Latinoamérica. Solo en marzo, el Informe Mundial Anual de 2025 dirigido por IQAir, una empresa tecnológica suiza especializada en la medición, supervisión y purificación del aire, lo nombró como el tercer país con los índices más altos de contaminantes como el MP2.5 (partículas con un tamaño inferior a 2,5 micras). Además, en él se incluían a 5 de los peores países de Latinoamérica (Equipo EMOL, 2026).
 
-Este informe también revelo que las ciudades más contaminadas son: Coyhaique, Nacimiento, Cochrane, Pitrufquén y Loncoche.
+Este informe también reveló que las ciudades más contaminadas son: Coyhaique, Nacimiento, Cochrane, Pitrufquén y Loncoche.
 
-Esto es un problema grave porque la exposición prolongada a mala calidad del aire afecta la calidad de vida de los chilenos de diversas maneras; aumenta el riesgo de sufrir enfermedades cardiorrespiratorias, deteroriando el sistema inmunitario o defensas, además de poder desarrollar enfermedades como el cancer de pulmon, de mama o de higado.
+Esto es un problema grave, ya que la exposición prolongada a la mala calidad del aire afecta a la calidad de vida de los chilenos de diversas maneras: aumenta el riesgo de sufrir enfermedades cardiorrespiratorias y deteriora el sistema inmunitario, además de poder desarrollar cáncer de pulmón, de mama o de hígado.
 
-Según el ministerio del medio ambiente cada año mueren más de 3.600 personas por esta causa, así que resulta de interes analizar la información disponible sobre la calidad del aire en Chile y ver variables son las que más influyen a los niveles elevados del PM2.5 (Valdés et. al, 2020). 
+Según el Ministerio de Medio Ambiente, cada año mueren más de 3600 personas por esta causa, por lo que resulta de interés analizar la información disponible sobre la calidad del aire en Chile y ver qué variables son las que más influyen en los niveles elevados de PM2,5 (Valdés et al., 2020). 
 
-Con todo lo anterior considerado, decidimos investigar sobre como es que los niveles de contaminación de Coyahique pueden afectar la salud de sus habitantes. Esto lo haremos usando el número de consultas de urgencia respiratoria semanales y los datos ambientales de esta ciudad. 
+Teniendo todo lo anterior en cuenta, decidimos investigar cómo pueden afectar los niveles de contaminación de Coyhaique a la salud de sus habitantes. Para ello, usaremos el número de consultas de urgencia respiratoria semanales y los datos ambientales de esta ciudad. 
 
 
 # Preguntas de investigación. 
 
-Nuestras preguntas de investigación son las siguientes, todas estas son centradas en la región de Aysen, especificamente la ciudad de Coyahique: 
+Nuestras preguntas de investigación son las siguientes: todas se centran en la región de Aysén, específicamente en la ciudad de Coyhaique: 
 
-* ¿Han habido cambios significativos en la presencia de contamienantes MP2.5 y CO durante los ultimos 9 años (periodo 2016-2025)?
+* En la ciudad de Coyahique ¿Se han producido cambios significativos en la presencia de contaminantes MP2.5 y CO durante los últimos 9 años (periodo 2016-2025)?
 
-* ¿Hay alguna correlación entre la contaminación MP2.5 y la temperatura, humedad relativa y velocidad del viento?
+* En la ciudad de Coyahique ¿Hay alguna correlación entre la contaminación por partículas en suspensión (MP2.5) y la temperatura, la humedad relativa y la velocidad del viento?
 
-* ¿En que meses vemos un incremento en consultas de urgencia respiratoria?
+* En la ciudad de Coyahique ¿En qué meses se produce un incremento de las consultas de urgencia respiratoria?
 
-* ¿Hay alguna correlación entre las consultas de urgencia respiratioria y la temperatura, humedad relativa y velocidad del viento?
+*¿Hay alguna correlación entre las consultas de urgencia respiratoria en Coyahique y la temperatura, la humedad relativa y la velocidad del viento?
 
 
 La pregunta principal de nuestra investigación es:
 
-* ¿Qué factores climáticos inciden en urgencias respiratorias? ¿Existe alguna correlación entre las urgencias y el nivel de contaminantes?
-
-
+¿Qué factores climáticos inciden en las urgencias respiratorias? ¿Existe alguna correlación entre las urgencias y el nivel de contaminantes?
 
 # Datos utilizados
 
 ## Datos de Sistema de Información Nacional de Calidad del Aire
 
-En nuestra investigación vamos a ocupar principalmente los registros del [Sistema de Información Nacional de Calidad del Aire](https://sinca.mma.gob.cl/index.php/) (SINCA). Esta página expone información de calidad de aire de todo Chile, presentando esta información dividida en regiones y estaciones de monitoreo de la calidad del aire. Los datos que vamos a ocupar son recuperados de la estación Coyaique II, con el fin de ser modelar los resultados respecto a esta ciudad puntual.
+En nuestra investigación, utilizaremos principalmente los registros del [Sistema de Información Nacional de Calidad del Aire](https://sinca.mma.gob.cl/index.php/) (SINCA). Esta página web muestra información sobre la calidad del aire en todo Chile, organizada por regiones y estaciones de monitoreo. Los datos que vamos a utilizar se han recuperado de la estación Coyaique II, con el fin de modelar los resultados respecto a esta ciudad concreta.
 
-Los datos tuvieron que ser limpiados porque SINCA reporta de manera por hora y una suma diaria los niveles de MP2.5,los niveles de CO, la temperatura, humedad relativa y velocidad del viento. Decidimos recuperar los registros desde el 01 de Enero, 2016 hasta el 31 de diciembre, 2025. Estas fechas fueron seleccionadas para no tener sobrerepresentación de las estaciones del año.
+Los datos han tenido que ser limpiados porque el SINCA informa cada hora y realiza una suma diaria de los niveles de MP2,5, los niveles de CO, la temperatura, la humedad relativa y la velocidad del viento. Decidimos recuperar los registros desde el 1 de enero de 2016 hasta el 31 de diciembre de 2025. Estas fechas se han seleccionado para evitar la sobrerrepresentación de las estaciones del año.
 
-Decidimos dejar los tres tipos de registros, la variable mes(porque puede ser relevante al momento en que sube o baja la contaminación), la columna fecha se usará como nuestro id.
+Decidimos dejar los tres tipos de registros: la variable mes, porque puede ser relevante en el momento en que sube o baja la contaminación, y la columna fecha, que se usará como identificador.
 
 #### Concentración de MP2,5
 
-El data set con la concentración de MP2.5 presentan 5 variables, 3 de ellas representan el registro de PM2.5 (μg/m³) en el aire: los Registros Validos, Registros preliminares y Registros no validos. Estos datos estan representados en una tabla con los siguientes valores: 
+El conjunto de datos sobre la concentración de MP2.5 tiene 5 variables, de las cuales 3 representan la medición de PM2.5 ($\mu g/m^3$) en el aire: registros válidos, registros preliminares y registros no válidos. Estos datos están representados en una tabla con los siguientes valores: 
 
 * FECHA (YYMMDD): Fecha en la que fue tomada la muestra.
 * HORA (HHMM): Hora en la que fue tomada la muestra. 
@@ -63,13 +61,13 @@ La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyec
 
 #### Concentración de CO
 
-El data set con la concentración de CO presentan 5 variables, 3 de ellas representan el registro de CO (μg/m³) en el aire: los Registros Validos, Registros preliminares y Registros no validos. Estos datos estan representados en una tabla con los siguientes valores: 
+El data set con la concentración de CO presentan 5 variables, 3 de ellas representan el registro de CO ($ppm$) en el aire: los Registros Validos, Registros preliminares y Registros no validos. Estos datos estan representados en una tabla con los siguientes valores: 
 
 * FECHA (YYMMDD): Fecha en la que fue tomada la muestra.
 * HORA (HHMM): Hora en la que fue tomada la muestra. 
-* Registros validados (mg/m³): Valores que representan los niveles de PM2.5 que han pasado por un procedimiento de validación.
-* Registros preliminares (mg/m³): Valores que representan los niveles de PM2.5 que se aproximan pero aún no han pasado por un procedimiento de validación.
-* Registros no validados (mg/m³): Valores que representan los niveles de PM2.5 que no han pasado por un procedimiento de validación.
+* Registros validados (ppm): Valores que representan los niveles de CO que han pasado por un procedimiento de validación.
+* Registros preliminares (ppm): Valores que representan los niveles de CO que se aproximan pero aún no han pasado por un procedimiento de validación.
+* Registros no validados (ppm): Valores que representan los niveles de CO que no han pasado por un procedimiento de validación.
 
 La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/CO.csv)
 
@@ -126,10 +124,11 @@ Para complementar los datos decidimos recuperar los datos de la [DIRECCIÓN METE
 * Dia (entero positivo): Día en la que fue tomada la muestra.
 * datos (mm):	mililitros de lluvia diarios.
 
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Precipitaciones.xlsx)
+
 ## Datos del Departamento de Estadísticas e Información de Salud
 
-Por último recuperamos un dataset que registra el número promedio de consultas de urgencia respiratoria semanales. Este dataset se encuentra disponible en la base de datos del [Departamento de Estadísticas e Información de Salud](https://deis.minsal.cl/) (DEIS). En este dataset cubre los registros de consultas entre el 2015 y el 2025. Estos datos estan representados en una tabla con los siguientes valores: 
-
+Por último, recuperamos un conjunto de datos que registra el número promedio de consultas de urgencia respiratoria semanales. Dicho conjunto de datos está disponible en la base de datos del [Departamento de Estadísticas e Información de Salud](https://deis.minsal.cl/) (DEIS). El conjunto de datos abarca los registros de consultas entre 2015 y 2025. Estos datos están representados en una tabla con los siguientes valores: 
 
 * Fecha (Año-Mes-Día): Fecha en que se recupero la muestra.	
 * Anio (entero positivo): Año en que se recupero la muestra.
@@ -157,8 +156,6 @@ La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyec
 
 
 # Análisis descriptivo de los datos 
-
-
 
 ```{r}
 ## Corra esta celda si no tiene instalada alguna de estas librerias
@@ -338,7 +335,7 @@ Se observa una dependencia temporal; tal que las atenciones del día dependen de
 
 # Citas:
 
-* Equipo EMOL (2026, 24 marzo). Santiago es la segunda capital de Latinoamérica con peor calidad del aire y Chile está 54° en ranking global de países. Emol. https://www.emol.com/noticias/Internacional/2026/03/24/1195203/calidad-aire-ranking-paises-ciudades.html
+* Equipo EMOL (2026, 24 marzo). Santiago es la segunda capital de Latinoamérica con peor calidad del aire y Chile está 54° en ranking global de países. Emol. [https://www.emol.com/noticias/Internacional/2026/03/24/1195203/calidad-aire-ranking-paises-ciudades.html](https://www.emol.com/noticias/Internacional/2026/03/24/1195203/calidad-aire-ranking-paises-ciudades.html)
 
 * Valdés, Macarena, Laura Gallardo, Alex Boso, Jonathan Barton, Nicolás
 Huneeus, Jorge Jiménez, Héctor Jorquera, Rodrigo Seguel, Alejandra
