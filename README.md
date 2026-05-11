@@ -1,6 +1,12 @@
 <p align="center">
   <img src="https://i.ibb.co/1tc1JGc2/PONTIFICIA-UNIVERSIDAD-CAT-LICA-DE-CHILE-FACULTAD-DE-MATEM-TICAS-DEPARTAMENTO-DE-ESTAD-STICA.png" alt="Imagen-Portada">
 </p>
+## Autores
+* Fernanda Bley De Barbieri -- [fernanda.bley@uc.cl](fernanda.bley@uc.cl)
+* María Catalina Cárdenas Muñoz -- [mccardenas1@uc.cl](mccardenas1@uc.cl)
+* Briggitte Alexandra Pardo Arce -- [briggitte.pardo@uc.cl](briggitte.pardo@uc.cl)
+* Romina Javiera Pulgares Muñoz" -- [rpulgares@uc.cl](rpulgares@uc.cl)
+
 
 # Datos utilizados
 
