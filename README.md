@@ -1,6 +1,7 @@
 <p align="center">
   <img src="https://i.ibb.co/1tc1JGc2/PONTIFICIA-UNIVERSIDAD-CAT-LICA-DE-CHILE-FACULTAD-DE-MATEM-TICAS-DEPARTAMENTO-DE-ESTAD-STICA.png" alt="Imagen-Portada">
 </p>
+
 # Datos utilizados
 
 ## Datos de Sistema de Información Nacional de Calidad del Aire
