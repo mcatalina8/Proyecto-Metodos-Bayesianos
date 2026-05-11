@@ -15,14 +15,14 @@ Este informe también reveló que las ciudades más contaminadas son: Coyhaique,
 
 Esto es un problema grave, ya que la exposición prolongada a la mala calidad del aire afecta a la calidad de vida de los chilenos de diversas maneras: aumenta el riesgo de sufrir enfermedades cardiorrespiratorias y deteriora el sistema inmunitario, además de poder desarrollar cáncer de pulmón, de mama o de hígado.
 
-Según el Ministerio de Medio Ambiente, cada año mueren más de 3600 personas por esta causa, por lo que resulta de interés analizar la información disponible sobre la calidad del aire en Chile y ver qué variables son las que más influyen en los niveles elevados de PM2,5 (Valdés et al., 2020). 
+Según el Ministerio de Medio Ambiente, cada año mueren más de 3600 personas por esta causa, por lo que resulta de interés analizar la información disponible sobre la calidad del aire en Chile y ver qué variables son las que más influyen en los niveles elevados de MP2,5 (Valdés et al., 2020). 
 
 Teniendo todo lo anterior en cuenta, decidimos investigar cómo pueden afectar los niveles de contaminación de Coyhaique a la salud de sus habitantes. Para ello, usaremos el número de consultas de urgencia respiratoria semanales y los datos ambientales de esta ciudad. 
 
 
 # Preguntas de investigación. 
 
-Nuestras preguntas de investigación son las siguientes: todas se centran en la región de Aysén, específicamente en la ciudad de Coyhaique: 
+Las preguntas de investigación son las siguientes (todas se centran en la región de Aysén, específicamente en la ciudad de Coyhaique): 
 
 * En la ciudad de Coyahique ¿Se han producido cambios significativos en la presencia de contaminantes MP2.5 y CO durante los últimos 9 años (periodo 2016-2025)?
 
@@ -33,7 +33,7 @@ Nuestras preguntas de investigación son las siguientes: todas se centran en la 
 * ¿Hay alguna correlación entre las consultas de urgencia respiratoria en Coyahique y la temperatura, la humedad relativa y la velocidad del viento?
 
 
-La pregunta principal de nuestra investigación es:
+La pregunta de investigación principal es:
 
 ¿Qué factores climáticos inciden en las urgencias respiratorias? ¿Existe alguna correlación entre las urgencias y el nivel de contaminantes?
 
@@ -49,7 +49,7 @@ Decidimos dejar los tres tipos de registros: la variable mes, porque puede ser r
 
 #### Concentración de MP2,5
 
-El conjunto de datos sobre la concentración de MP2.5 tiene 5 variables, de las cuales 3 representan la medición de PM2.5 ($\mu g/m^3$) en el aire: registros válidos, registros preliminares y registros no válidos. Estos datos están representados en una tabla con los siguientes valores: 
+El conjunto de datos sobre la concentración de MP2.5 tiene 5 variables, de las cuales 3 representan la medición de MP2.5 ($\mu g/m^3$) en el aire: registros válidos, registros preliminares y registros no válidos. Estos datos están representados en una tabla con los siguientes valores: 
 
 * FECHA (YYMMDD): Fecha en la que fue tomada la muestra.
 * HORA (HHMM): Hora en la que fue tomada la muestra. 
@@ -61,7 +61,7 @@ La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyec
 
 #### Concentración de CO
 
-El data set con la concentración de CO presentan 5 variables, 3 de ellas representan el registro de CO ($ppm$) en el aire: los Registros Validos, Registros preliminares y Registros no validos. Estos datos estan representados en una tabla con los siguientes valores: 
+El data set con la concentración de CO presentan 5 variables, 3 de ellas representan el registro de CO ($ppm$) en el aire: los registros válidos, registros preliminares y registros no válidos. Estos datos estan representados en una tabla con los siguientes valores: 
 
 * FECHA (YYMMDD): Fecha en la que fue tomada la muestra.
 * HORA (HHMM): Hora en la que fue tomada la muestra. 
@@ -106,23 +106,23 @@ Los datos de la velocidad del viento recuperados del SINCA, estos los presentamo
 
 * Fecha (YYMMDD): Fecha en la que fue tomada la muestra.	
 * Hora (HHMM): Hora en la que fue tomada la muestra.
-* Datos originales (km/h):	Humedad medida.
+* Datos originales (km/h):	Velocidad medida.
 * Fecha unica (YYMMDD): Fecha representativa que solo se repite una vez.
-* Promedio (km/h): Humedad medida promedio en el dia.
-* Máximo	(km/h): Humedad máxima.
-* Mínimo (km/h): Humedad minima.
+* Promedio (km/h): Velocidad medida promedio en el dia.
+* Máximo	(km/h): Velocidad máxima.
+* Mínimo (km/h): Velocidad minima.
 
 La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Velocidad%20del%20viento.xlsx)
 
 
 ## Datos de la dirección meteorologica de Chile
 
-Para complementar los datos decidimos recuperar los datos de la [DIRECCIÓN METEOROLÓGICA DE CHILE](https://explorador.cr2.cl/) esta pagina presenta lo captado poe una red de estaciones automáticas que entregan los militros de lluvia diarios. Estos datos estan representados en una tabla con los siguientes valores: 
+Para complementar los datos decidimos recuperar los datos de la [DIRECCIÓN METEOROLÓGICA DE CHILE](https://explorador.cr2.cl/) esta página presenta lo captado por una red de estaciones automáticas que entregan los milimetros de lluvia diarios. Estos datos están representados en una tabla con los siguientes valores: 
 
 * Año (entero positivo): Año en la que fue tomada la muestra.	
 * Mes (entero positivo): Mes en la que fue tomada la muestra.
 * Dia (entero positivo): Día en la que fue tomada la muestra.
-* datos (mm):	mililitros de lluvia diarios.
+* datos (mm):	milimetros de lluvia diarios.
 
 La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Precipitaciones.xlsx)
 
@@ -144,16 +144,16 @@ Los datos fueron unidos por fecha (Año-Mes-Día) en un dataset masivo que conti
 
 * Fecha/ID (Año-Mes-Día): Fecha en que se recupero la muestra.
 * Mes	(Mes): Mes correspondiente a la fecha. 
-* CO: La concentración de Monóxido de carbono entre registros validos, preliminares y no validos.
-* MP25: La concentración de MP2.5 entre registros validos, preliminares y no validos.
+* CO: La concentración de Monóxido de carbono entre registros válidos, preliminares y no válidos.
+* MP25: La concentración de MP2.5 entre registros válidos, preliminares y no válidos.
 * Humedad_relativa (%):	Humedad promedio durante el día.
 * Temperatura (°C): Temperatura  promedio durante el día.
-* Precipitaciones (mm): Militmetros de lluvia registrados durante el día.
+* Precipitaciones (mm): Milimetros de lluvia registrados durante el día.
 * Velocidad_viento (km/h): Velocidad del viento promedio durante el día.
 * Urgencias_respiratorias (entero positivo): Número promedio de urgencias respiratorias registradas en el día.
 
 La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Data%20set%20MB.xlsx)
-Tenemos 3654 registros (días) con 5 columnas. La fecha en formato año-mes-día que utilizamos como ID. Luego tenemos las variables: el mes correspondiente para saber que estación es, CO es la concentración de monoxido de carbono, MP25 es la concentración de MP2.5, el porcentaje de humedad registrada, la temperatura promedio del día, las precipitaciones son los milimetros de lluvia registrados, la velocidad del viento promedio del día y el número promedio de urgencias respiratorias registradas.
+Tenemos 3654 registros (días) con 5 columnas. La fecha en formato año-mes-día que utilizamos como ID. Luego tenemos las variables: el mes correspondiente para saber qué estación es, CO es la concentración de monoxido de carbono, MP25 es la concentración de MP2.5, el porcentaje de humedad registrada, la temperatura promedio del día, las precipitaciones son los milimetros de lluvia registrados, la velocidad del viento promedio del día y el número promedio de urgencias respiratorias registradas.
 
 # Análisis descriptivo de los datos 
 
@@ -197,7 +197,7 @@ hist(datos$Urgencias_respiratorias,freq=FALSE,
      main="Distribución de Urgencias Respiratorias en Coyhaique",
      col="coral3")
 ```
-Las urgencias respiratorias se mantienen sus mayoria entre los 50 y 150 casos diarios. 
+Las urgencias respiratorias se mantienen su mayoria entre los 50 y 150 casos diarios. 
 
 ### Concentración de MP2.5
 
@@ -222,7 +222,7 @@ corrplot(matriz,addCoef.col="black")
 
 ```
 
-Vemos que se presenta la mayor correlación para las urgencias respiratorias es la temperatura y MP2.5. 
+Vemos que las variables que presentan la mayor correlación con las urgencias respiratorias son la temperatura y el MP2.5. 
 
 ## Diagramas de dispersión 
 
@@ -235,7 +235,7 @@ plot(datos$MP25, datos$Urgencias_respiratorias,
      pch = 19,
      col = "darkcyan")
 ```
-Los casos de urgencia se concentran y suben en cuando hay entre 0 a 100 $\mu g/m^3$ mientras aumenta la concentración de MP vemos que los casos se dispersan pero se mantienen en un rango alto entre 250 y 50 casos. Casi no bajan de eso despues de los 300 $\mu g/m^3$.
+Los casos de urgencia se concentran y suben cuando hay entre 0 a 100 $\mu g/m^3$, mientras aumenta la concentración de MP vemos que los casos se dispersan pero se mantienen en un rango alto entre 250 y 50 casos. Casi no bajan de eso despues de los 300 $\mu g/m^3$.
 
 ### Concentración de CO vs. Casos registrados de urgencias respiratorias
 ```{r}
@@ -247,7 +247,7 @@ plot(datos$CO, datos$Urgencias_respiratorias,
      col = "darkgreen")
 ```
 
-Vemos que los casos se concentran cuando hay entre 0 y 1 $ppm$ de luego se dispersan manteniendo una variación bastante grande. En los casos sobre 3 los valores se mantienen entre 200 y 250. 
+Vemos que los casos se concentran cuando hay entre 0 y 1 $ppm$ de CO, luego se dispersan manteniendo una variación bastante grande. En los casos sobre 3 los valores se mantienen entre 200 y 250. 
 
 ### Temperatura vs. Casos registrados de urgencias respiratorias
 ```{r}
@@ -278,7 +278,7 @@ boxplot(Urgencias_respiratorias ~ estacion,
         main = "Casos respiratorios según estacionalidad")
 ```
 
-Vemos que hay más varianza y concentración en las urgencias cuando es invierno u otoño. También vemos que disminuyen en verano y que en primavera tienen valores minimos altos pero poca variación.
+Vemos que hay más varianza y concentración en las urgencias cuando es invierno u otoño. También se observa que disminuyen en verano y que en primavera tienen valores mínimos altos pero con poca variación.
 
 ## Series de tiempo
 
@@ -330,7 +330,7 @@ acf(datos$Urgencias_respiratorias,
     col = "darkblue",
     lwd = 2)
 ```
-Se observa una dependencia temporal; tal que las atenciones del día dependen de las las atenciones anteriores.
+Se observa una dependencia temporal, es decir, las atenciones del día dependen de las atenciones anteriores.
 
 
 # Citas:
