@@ -1,0 +1,349 @@
+---
+title: 'Propuesta de proyecto: Impacto de la Contaminación Atmosférica en la Salud
+  Pública'
+author: "Fernanda Bley, María Catalina Cardenas, Briggitte Pardo y Romina Pulgares"
+output:
+  html_notebook: default
+  pdf_document: default
+---
+
+# Contexto del problema
+
+Chile es uno de los paises con la peor calidad de aire en latinoamerica. Solo en Marzo el Informa Mundial Anual del 2025 dirigido por IQAir, una empresa tecnológica suiza especializada en la medición, monitoreo y purificación del aire, sobre la calidad del aire en el mundo, nombro a Santiago como el tercer país con los indices más altos de contaminantes como el MP2.5(particulas con tamaño menor a 2.5). Además de contener a 5 de los peores países de Latinoamerca.(Equipo EMOL, 2026)
+
+Este informe también revelo que las ciudades más contaminadas son: Coyhaique, Nacimiento, Cochrane, Pitrufquén y Loncoche.
+
+Esto es un problema grave porque la exposición prolongada a mala calidad del aire afecta la calidad de vida de los chilenos de diversas maneras; aumenta el riesgo de sufrir enfermedades cardiorrespiratorias, deteroriando el sistema inmunitario o defensas, además de poder desarrollar enfermedades como el cancer de pulmon, de mama o de higado.
+
+Según el ministerio del medio ambiente cada año mueren más de 3.600 personas por esta causa, así que resulta de interes analizar la información disponible sobre la calidad del aire en Chile y ver variables son las que más influyen a los niveles elevados del PM2.5 (Valdés et. al, 2020). 
+
+Con todo lo anterior considerado, decidimos investigar sobre como es que los niveles de contaminación de Coyahique pueden afectar la salud de sus habitantes. Esto lo haremos usando el número de consultas de urgencia respiratoria semanales y los datos ambientales de esta ciudad. 
+
+
+# Preguntas de investigación. 
+
+Nuestras preguntas de investigación son las siguientes, todas estas son centradas en la región de Aysen, especificamente la ciudad de Coyahique: 
+
+* ¿Han habido cambios significativos en la presencia de contamienantes MP2.5 y CO durante los ultimos 9 años (periodo 2016-2025)?
+
+* ¿Hay alguna correlación entre la contaminación MP2.5 y la temperatura, humedad relativa y velocidad del viento?
+
+* ¿En que meses vemos un incremento en consultas de urgencia respiratoria?
+
+* ¿Hay alguna correlación entre las consultas de urgencia respiratioria y la temperatura, humedad relativa y velocidad del viento?
+
+
+La pregunta principal de nuestra investigación es:
+
+* ¿Qué factores climáticos inciden en urgencias respiratorias? ¿Existe alguna correlación entre las urgencias y el nivel de contaminantes?
+
+
+
+# Datos utilizados
+
+## Datos de Sistema de Información Nacional de Calidad del Aire
+
+En nuestra investigación vamos a ocupar principalmente los registros del [Sistema de Información Nacional de Calidad del Aire](https://sinca.mma.gob.cl/index.php/) (SINCA). Esta página expone información de calidad de aire de todo Chile, presentando esta información dividida en regiones y estaciones de monitoreo de la calidad del aire. Los datos que vamos a ocupar son recuperados de la estación Coyaique II, con el fin de ser modelar los resultados respecto a esta ciudad puntual.
+
+Los datos tuvieron que ser limpiados porque SINCA reporta de manera por hora y una suma diaria los niveles de MP2.5,los niveles de CO, la temperatura, humedad relativa y velocidad del viento. Decidimos recuperar los registros desde el 01 de Enero, 2016 hasta el 31 de diciembre, 2025. Estas fechas fueron seleccionadas para no tener sobrerepresentación de las estaciones del año.
+
+Decidimos dejar los tres tipos de registros, la variable mes(porque puede ser relevante al momento en que sube o baja la contaminación), la columna fecha se usará como nuestro id.
+
+#### Concentración de MP2,5
+
+El data set con la concentración de MP2.5 presentan 5 variables, 3 de ellas representan el registro de PM2.5 (μg/m³) en el aire: los Registros Validos, Registros preliminares y Registros no validos. Estos datos estan representados en una tabla con los siguientes valores: 
+
+* FECHA (YYMMDD): Fecha en la que fue tomada la muestra.
+* HORA (HHMM): Hora en la que fue tomada la muestra. 
+* Registros validados (μg/m³): Valores que representan los niveles de PM2.5 que han pasado por un procedimiento de validación.
+* Registros preliminares (μg/m³): Valores que representan los niveles de PM2.5 que se aproximan pero aún no han pasado por un procedimiento de validación.
+* Registros no validados (μg/m³): Valores que representan los niveles de PM2.5 que no han pasado por un procedimiento de validación.
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/MP25.xlsx)
+
+#### Concentración de CO
+
+El data set con la concentración de CO presentan 5 variables, 3 de ellas representan el registro de CO (μg/m³) en el aire: los Registros Validos, Registros preliminares y Registros no validos. Estos datos estan representados en una tabla con los siguientes valores: 
+
+* FECHA (YYMMDD): Fecha en la que fue tomada la muestra.
+* HORA (HHMM): Hora en la que fue tomada la muestra. 
+* Registros validados (mg/m³): Valores que representan los niveles de PM2.5 que han pasado por un procedimiento de validación.
+* Registros preliminares (mg/m³): Valores que representan los niveles de PM2.5 que se aproximan pero aún no han pasado por un procedimiento de validación.
+* Registros no validados (mg/m³): Valores que representan los niveles de PM2.5 que no han pasado por un procedimiento de validación.
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/CO.csv)
+
+
+#### Temperatura 
+
+Los datos de la temperatura fueron recuperados del SINCA, estos los presentamos en un dataset con las siguientes variables:
+
+* Fecha (YYMMDD): Fecha en la que fue tomada la muestra.	
+* Hora (HHMM): Hora en la que fue tomada la muestra.
+* Datos originales (°C):	Temperatura medida.
+* Fecha unica (YYMMDD): Fecha representativa que solo se repite una vez.
+* Promedio (°C): Temperatura medida promedio en el dia.
+* Máximo	(°C): Temperatura máxima.
+* Mínimo (°C): Temperatura minima.
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Temperatura.xlsx)
+
+#### Humedad relativa
+
+Los datos de la humedad relativa fueron recuperados del SINCA, estos los presentamos en un dataset con las siguientes variables:
+
+* Fecha (YYMMDD): Fecha en la que fue tomada la muestra.	
+* Hora (HHMM): Hora en la que fue tomada la muestra.
+* Datos originales (%):	Humedad medida.
+* Fecha unica (YYMMDD): Fecha representativa que solo se repite una vez.
+* Promedio (%): Humedad medida promedio en el dia.
+* Máximo	(%): Humedad máxima.
+* Mínimo (%): Humedad minima.
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Humedad%20relativa.xlsx)
+
+#### Velocidad del viento
+
+Los datos de la velocidad del viento recuperados del SINCA, estos los presentamos en un dataset con las siguientes variables:
+
+* Fecha (YYMMDD): Fecha en la que fue tomada la muestra.	
+* Hora (HHMM): Hora en la que fue tomada la muestra.
+* Datos originales (km/h):	Humedad medida.
+* Fecha unica (YYMMDD): Fecha representativa que solo se repite una vez.
+* Promedio (km/h): Humedad medida promedio en el dia.
+* Máximo	(km/h): Humedad máxima.
+* Mínimo (km/h): Humedad minima.
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Velocidad%20del%20viento.xlsx)
+
+
+## Datos de la dirección meteorologica de Chile
+
+Para complementar los datos decidimos recuperar los datos de la [DIRECCIÓN METEOROLÓGICA DE CHILE](https://explorador.cr2.cl/) esta pagina presenta lo captado poe una red de estaciones automáticas que entregan los militros de lluvia diarios. Estos datos estan representados en una tabla con los siguientes valores: 
+
+* Año (entero positivo): Año en la que fue tomada la muestra.	
+* Mes (entero positivo): Mes en la que fue tomada la muestra.
+* Dia (entero positivo): Día en la que fue tomada la muestra.
+* datos (mm):	mililitros de lluvia diarios.
+
+## Datos del Departamento de Estadísticas e Información de Salud
+
+Por último recuperamos un dataset que registra el número promedio de consultas de urgencia respiratoria semanales. Este dataset se encuentra disponible en la base de datos del [Departamento de Estadísticas e Información de Salud](https://deis.minsal.cl/) (DEIS). En este dataset cubre los registros de consultas entre el 2015 y el 2025. Estos datos estan representados en una tabla con los siguientes valores: 
+
+
+* Fecha (Año-Mes-Día): Fecha en que se recupero la muestra.	
+* Anio (entero positivo): Año en que se recupero la muestra.
+* Semana estadistica (semana): Semana correspondiente en el informe.
+* Total Semana (consultas): Total de consultas.
+* Promedio diario (consultas): Número promedio diario de consultas. 
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Coyhaique_2015_2025%20urgencias%20respiratorias.xlsx)
+
+## Formato final
+
+Los datos fueron unidos por fecha (Año-Mes-Día) en un dataset masivo que contiene los registros unidos en una fecha en particular.
+
+* Fecha/ID (Año-Mes-Día): Fecha en que se recupero la muestra.
+* Mes	(Mes): Mes correspondiente a la fecha. 
+* CO: La concentración de Monóxido de carbono entre registros validos, preliminares y no validos.
+* MP25: La concentración de MP2.5 entre registros validos, preliminares y no validos.
+* Humedad_relativa (%):	Humedad promedio durante el día.
+* Temperatura (°C): Temperatura  promedio durante el día.
+* Precipitaciones (mm): Militmetros de lluvia registradas durante el día.
+* Velocidad_viento (km/h): Velocidad del viento promedio durante el día.
+* Urgencias_respiratorias (entero positivo): Número promedio de urgencias respiratorias registradas en el día.
+
+La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Data%20set%20MB.xlsx)
+
+
+# Análisis descriptivo de los datos 
+
+
+
+```{r}
+## Corra esta celda si no tiene instalada alguna de estas librerias
+pkgs <- c("corrplot", "rio", "dplyr", "qpcR")
+
+new_pkgs <- pkgs[!(pkgs %in% installed.packages()[, "Package"])]
+if (length(new_pkgs) > 0) {
+  install.packages(new_pkgs, dependencies = TRUE)
+}
+```
+
+```{r}
+library(corrplot)
+library(rio)
+library(dplyr)
+library(qpcR)
+
+```
+
+## Medidas de resumen
+
+```{r}
+datos <- import("data/Data set MB.xlsx")
+summary(datos)
+
+```
+Vemos que MP2.5 presentan valores extremos llegando tan alto como 417.53μg/m³. Esto es 3 veces mayor a los niveles sanos de concentración. 
+También vemos que la urgencia respiratorias tiene una variabilidad considerable (6.71 a 348.71).
+
+## Histogramas
+
+### Urgencias respiratorias
+
+```{r}
+### Urgencias respiratorias
+hist(datos$Urgencias_respiratorias,freq=FALSE,
+     xlab = "Casos diarios",
+     ylab="Densidad",
+     main="Distribución de Urgencias Respiratorias en Coyhaique",
+     col="coral3")
+```
+Las urgencias respiratorias se mantienen sus mayoria entre los 50 y 150 casos diarios. 
+
+### Concentración de MP2.5
+
+```{r}
+### MP2.5
+hist(datos$MP25,freq=FALSE,
+     xlab = expression("MP 2.5 diario ("*mu*"g/m"^3*")"),
+     ylab="Densidad",
+     main=expression("Distribución de MP 2.5 diario("*mu*"g/m"^3*")"),
+     col="darkred")
+
+
+```
+El MP2.5 diario se mantuvo entre 0 a 50, con algunos siendo hasta 300 o 400. Lo cual se encuentra sobre lo que se considera sano según el ministerio del medioambiente.
+
+## Matriz de correlación
+
+```{r}
+vars <- datos[,c("MP25","Humedad_relativa","Precipitaciones","Velocidad_viento","Temperatura","Urgencias_respiratorias","CO")]
+matriz <- cor(vars,use="pairwise.complete.obs")
+corrplot(matriz,addCoef.col="black")
+
+```
+
+Vemos que se presenta la mayor correlación para las urgencias respiratorias es la temperatura y MP2.5. 
+
+## Diagramas de dispersión 
+
+### Concentración de MP2.5 vs. Casos registrados de urgencias respiratorias 
+```{r}
+plot(datos$MP25, datos$Urgencias_respiratorias,
+     xlab = expression("MP 2.5("*mu*"g/m"^3*")"),
+     ylab = "Casos de urgencia",
+     main = "MP2.5 vs Urgencias Respiratorias",
+     pch = 19,
+     col = "darkcyan")
+```
+Los casos de urgencia se concentran y suben en cuando hay entre 0 a 100 $\mu g/m^3$ mientras aumenta la concentración de MP vemos que los casos se dispersan pero se mantienen en un rango alto entre 250 y 50 casos. Casi no bajan de eso despues de los 300 $\mu g/m^3$.
+
+### Concentración de CO vs. Casos registrados de urgencias respiratorias
+```{r}
+plot(datos$CO, datos$Urgencias_respiratorias,
+     xlab ="CO(ppm)",
+     ylab = "Casos de urgencia",
+     main = "Concentraciones de CO vs Urgencias Respiratorias",
+     pch = 19,
+     col = "darkgreen")
+```
+
+Vemos que los casos se concentran cuando hay entre 0 y 1 $ppm$ de luego se dispersan manteniendo una variación bastante grande. En los casos sobre 3 los valores se mantienen entre 200 y 250. 
+
+### Temperatura vs. Casos registrados de urgencias respiratorias
+```{r}
+plot(datos$Temperatura,datos$Urgencias_respiratorias,
+     xlab="Temperatura(°C)",
+     ylab="Casos de urgencia",
+     main="Temperaura vs Urgencias Respiratorias",
+     pch=19,
+     col="brown")
+```
+
+Vemos que cuando estamos entre los 0 y 10 grados aumenta de forma considerable los casos de urgencia. 
+
+## Boxplot de Urgencias por Estacionalidad
+```{r}
+datos$estacion <- ifelse(datos$Mes %in% c("Diciembre","Enero","Febrero"), "Verano",
+                         ifelse(datos$Mes %in% c("Marzo","Abril","Mayo"), "Otoño",
+                                ifelse(datos$Mes %in% c("Junio","Julio","Agosto"),
+                                       "Invierno",
+                                       "Primavera")))
+
+boxplot(Urgencias_respiratorias ~ estacion,
+        data = datos,
+        col = c("darkcyan","darkgoldenrod2",
+                "coral1","chartreuse3"),
+        xlab = "Estación del año",
+        ylab = "Urgencias respiratorias",
+        main = "Casos respiratorios según estacionalidad")
+```
+
+Vemos que hay más varianza y concentración en las urgencias cuando es invierno u otoño. También vemos que disminuyen en verano y que en primavera tienen valores minimos altos pero poca variación.
+
+## Series de tiempo
+
+```{r}
+datos$`Fecha/ID` <- as.Date(as.character(datos$`Fecha/ID`),
+                       format = "%y%m%d")
+datos$mes <- format(datos$`Fecha/ID`, "%m")
+```
+
+### Urgencias Respiratorias
+```{r}
+plot(datos$`Fecha/ID`,datos$Urgencias_respiratorias,
+     type = "l",
+     col = "red",
+     xlab = "Fecha",
+     ylab = "Casos diarios",
+     main = "Evolución temporal urgencias respiratorias")
+```
+Vemos que hay muchos peaks entre medio, los más altos se encuentran en el 2020, 2023 y 2025. 
+
+### Concentración de MP2.5
+```{r}
+plot(datos$`Fecha/ID`,datos$MP25,
+     type="l",
+     col="coral3",
+     xlab="Fecha",
+     ylab="Concentración de MP2.5",
+     main="Evolución temporal MP2.5")
+```
+
+Los peaks se muestran entre la mitad del año, lo cual probablemente está correlacionado a las estaciones. Bajan cuando empieza o termina el año.
+
+### Concentración de CO
+```{r}
+plot(datos$`Fecha/ID`,datos$CO,
+     type="l",
+     col="coral1",
+     xlab="Fecha",
+     ylab="Concentración de MP2.5",
+     main="Evolución temporal MP2.5")
+```
+
+Los peaks se muestran entre la mitad del año, lo cual probablemente está correlacionado a las estaciones. Bajan cuando empieza o termina el año.
+
+### Autocorrelación 
+```{r}
+acf(datos$Urgencias_respiratorias,
+    main = "Autocorrelación de urgencias respiratorias",
+    col = "darkblue",
+    lwd = 2)
+```
+Se observa una dependencia temporal; tal que las atenciones del día dependen de las las atenciones anteriores.
+
+
+# Citas:
+
+* Equipo EMOL (2026, 24 marzo). Santiago es la segunda capital de Latinoamérica con peor calidad del aire y Chile está 54° en ranking global de países. Emol. https://www.emol.com/noticias/Internacional/2026/03/24/1195203/calidad-aire-ranking-paises-ciudades.html
+
+* Valdés, Macarena, Laura Gallardo, Alex Boso, Jonathan Barton, Nicolás
+Huneeus, Jorge Jiménez, Héctor Jorquera, Rodrigo Seguel, Alejandra
+Schueftan y Anahí Urquiza (2020). Los peligros de la mala calidad de aire: Un
+llamado a la acción sobre lo estructural para una reactivación económica
+sustentable postpandemia. Santiago: Comité Científico Asesor de Cambio
+Climático; Ministerio de Ciencia, Tecnología, Conocimiento e Innovación. Disponible en: [https://minciencia.gob.cl/uploads/filer_public/09/a9/09a9f5bc-121d-4650-a67e-302595233ed0/los_peligros_de_la_mala_calidad_del_aire.pdf](https://minciencia.gob.cl/uploads/filer_public/09/a9/09a9f5bc-121d-4650-a67e-302595233ed0/los_peligros_de_la_mala_calidad_del_aire.pdf)
+
