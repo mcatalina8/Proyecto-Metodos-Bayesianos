@@ -30,7 +30,7 @@ Nuestras preguntas de investigación son las siguientes: todas se centran en la 
 
 * En la ciudad de Coyahique ¿En qué meses se produce un incremento de las consultas de urgencia respiratoria?
 
-*¿Hay alguna correlación entre las consultas de urgencia respiratoria en Coyahique y la temperatura, la humedad relativa y la velocidad del viento?
+* ¿Hay alguna correlación entre las consultas de urgencia respiratoria en Coyahique y la temperatura, la humedad relativa y la velocidad del viento?
 
 
 La pregunta principal de nuestra investigación es:
@@ -148,12 +148,12 @@ Los datos fueron unidos por fecha (Año-Mes-Día) en un dataset masivo que conti
 * MP25: La concentración de MP2.5 entre registros validos, preliminares y no validos.
 * Humedad_relativa (%):	Humedad promedio durante el día.
 * Temperatura (°C): Temperatura  promedio durante el día.
-* Precipitaciones (mm): Militmetros de lluvia registradas durante el día.
+* Precipitaciones (mm): Militmetros de lluvia registrados durante el día.
 * Velocidad_viento (km/h): Velocidad del viento promedio durante el día.
 * Urgencias_respiratorias (entero positivo): Número promedio de urgencias respiratorias registradas en el día.
 
 La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Data%20set%20MB.xlsx)
-
+Tenemos 3654 registros (días) con 5 columnas. La fecha en formato año-mes-día que utilizamos como ID. Luego tenemos las variables: el mes correspondiente para saber que estación es, CO es la concentración de monoxido de carbono, MP25 es la concentración de MP2.5, el porcentaje de humedad registrada, la temperatura promedio del día, las precipitaciones son los milimetros de lluvia registrados, la velocidad del viento promedio del día y el número promedio de urgencias respiratorias registradas.
 
 # Análisis descriptivo de los datos 
 
