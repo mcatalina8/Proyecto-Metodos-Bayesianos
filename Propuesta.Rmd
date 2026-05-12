@@ -12,13 +12,13 @@ output:
 
 Chile es uno de los países con peor calidad del aire de Latinoamérica. Solo en marzo, el Informe Mundial Anual de 2025 dirigido por IQAir, una empresa tecnológica suiza especializada en la medición, supervisión y purificación del aire, lo nombró como el tercer país con los índices más altos de contaminantes como el MP2.5 (partículas con un tamaño inferior a 2,5 micras). Además, en él se incluían a 5 de los peores países de Latinoamérica (Equipo EMOL, 2026).
 
-Este informe también reveló que las ciudades más contaminadas son: Coyhaique, Nacimiento, Cochrane, Pitrufquén y Loncoche.
+Este informe también reveló que las ciudades más contaminadas en Chile son: Coyhaique, Nacimiento, Cochrane, Pitrufquén y Loncoche.
 
-Esto es un problema grave, ya que la exposición prolongada a la mala calidad del aire afecta a la calidad de vida de los chilenos de diversas maneras: aumenta el riesgo de sufrir enfermedades cardiorrespiratorias y deteriora el sistema inmunitario, además de poder desarrollar cáncer de pulmón, de mama o de hígado.
+Esto presenta una verdadera problématica en nuestro país, debido a que la exposición prolongada a la mala calidad del aire afecta al bienestar de los chilenos de diversas maneras, por ejemplo: aumenta el riesgo de sufrir enfermedades cardiorrespiratorias y deteriora el sistema inmunitario, además de poder desarrollar cáncer de pulmón, de mama o de hígado.
 
-Según el Ministerio de Medio Ambiente, cada año mueren más de 3600 personas por esta causa, por lo que resulta de interés analizar la información disponible sobre la calidad del aire en Chile y ver qué variables son las que más influyen en los niveles elevados de MP2,5 (Valdés et al., 2020). 
+Adionalmente, según datos del Ministerio de Medio Ambiente, cada año mueren más de 3600 personas por esta causa, por lo que resulta de interés analizar la información disponible sobre la calidad del aire en Chile y ver qué variables son las que más influyen en los niveles elevados de MP2,5 (Valdés et al., 2020). 
 
-Teniendo todo lo anterior en cuenta, decidimos investigar cómo pueden afectar los niveles de contaminación de Coyhaique a la salud de sus habitantes. Para ello, usaremos el número de consultas de urgencia respiratoria semanales y los datos ambientales de esta ciudad. 
+Teniendo todo lo anterior en cuenta, como equipo hemos decidimos investigar cómo pueden afectar los niveles de contaminación de Coyhaique a la salud de sus habitantes. Para ello, usaremos el número de consultas de urgencia respiratoria semanales y los datos ambientales de esta ciudad. 
 
 
 # Preguntas de investigación. 
