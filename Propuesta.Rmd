@@ -10,7 +10,7 @@ output:
 
 # Contexto del problema
 
-Chile es uno de los países con peor calidad del aire de Latinoamérica. Solo en marzo, el Informe Mundial Anual de 2025 dirigido por IQAir, una empresa tecnológica suiza especializada en la medición, supervisión y purificación del aire, lo nombró como el tercer país con los índices más altos de contaminantes como el MP2.5 (partículas con un tamaño inferior a 2,5 micras). Además, en él se incluían a 5 de los peores países de Latinoamérica (Equipo EMOL, 2026).
+Chile es uno de los países con peor calidad del aire de Latinoamérica. Solo en marzo, el Informe Mundial Anual de 2025 dirigido por IQAir —empresa tecnológica suiza especializada en la medición, supervisión y purificación del aire— lo nombró como el tercer país con los índices más altos de contaminantes como el MP2.5 (partículas con un tamaño inferior a 2,5 micras). El mismo informe posicionó a 5 países de Latinoamérica entre los de peor calidad del aire a nivel regional. (Equipo EMOL, 2026).
 
 Este informe también reveló que las ciudades más contaminadas en Chile son: Coyhaique, Nacimiento, Cochrane, Pitrufquén y Loncoche.
 
