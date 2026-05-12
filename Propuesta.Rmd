@@ -1,11 +1,12 @@
 ---
-title: 'Propuesta de proyecto: Impacto de la Contaminación Atmosférica en la Salud
-  Pública'
+title: "Propuesta de proyecto: Impacto de la Contaminación Atmosférica en la Salud Pública"
 author: "Fernanda Bley, María Catalina Cardenas, Briggitte Pardo y Romina Pulgares"
 output:
+  pdf_document:
+    latex_engine: xelatex  # ✅ Argumento correcto en R Markdown
   html_notebook: default
-  pdf_document: default
 ---
+
 
 # Contexto del problema
 
@@ -57,7 +58,7 @@ El conjunto de datos sobre la concentración de MP2.5 tiene 5 variables, de las 
 * Registros preliminares (μg/m³): Valores que representan los niveles de PM2.5 que se aproximan pero aún no han pasado por un procedimiento de validación.
 * Registros no validados (μg/m³): Valores que representan los niveles de PM2.5 que no han pasado por un procedimiento de validación.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/MP25.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1v0ESyO0_3t5OiLOqc3XLV0RaxpMughjW/edit?usp=sharing&ouid=110796279110372732784&rtpof=true&sd=true)
 
 #### Concentración de CO
 
@@ -69,7 +70,7 @@ El data set con la concentración de CO presentan 5 variables, 3 de ellas repres
 * Registros preliminares (ppm): Valores que representan los niveles de CO que se aproximan pero aún no han pasado por un procedimiento de validación.
 * Registros no validados (ppm): Valores que representan los niveles de CO que no han pasado por un procedimiento de validación.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/CO.csv)
+La base de datos se puede encontrar [aquí](https://drive.google.com/file/d/1FoKp36Bh0Oi5AM4LaXENLmo9yJess7m7/view?usp=sharing)
 
 
 #### Temperatura 
@@ -84,7 +85,7 @@ Los datos de la temperatura fueron recuperados del SINCA, estos los presentamos 
 * Máximo	(°C): Temperatura máxima.
 * Mínimo (°C): Temperatura minima.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Temperatura.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1ShczgS8xL6kArzDQovF54MNMsVRL-Vw9/edit?usp=drive_link&ouid=110796279110372732784&rtpof=true&sd=true)
 
 #### Humedad relativa
 
@@ -98,7 +99,7 @@ Los datos de la humedad relativa fueron recuperados del SINCA, estos los present
 * Máximo	(%): Humedad máxima.
 * Mínimo (%): Humedad minima.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Humedad%20relativa.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1xK7yWBEDn7Yt-damv97dRUy9sggdVrSD/edit?usp=drive_link&ouid=110796279110372732784&rtpof=true&sd=true)
 
 #### Velocidad del viento
 
@@ -112,7 +113,7 @@ Los datos de la velocidad del viento recuperados del SINCA, estos los presentamo
 * Máximo	(km/h): Velocidad máxima.
 * Mínimo (km/h): Velocidad minima.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Velocidad%20del%20viento.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1LMAxf_wAwpGCi7E9jLB-qyqnLgxu6Xl_/edit?usp=drive_link&ouid=110796279110372732784&rtpof=true&sd=true)
 
 
 ## Datos de la dirección meteorologica de Chile
@@ -124,7 +125,7 @@ Para complementar los datos decidimos recuperar los datos de la [DIRECCIÓN METE
 * Dia (entero positivo): Día en la que fue tomada la muestra.
 * datos (mm):	milimetros de lluvia diarios.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Precipitaciones.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1pIdMb2n2KEuen1uIY-pBftC5i75asDiJ/edit?usp=drive_link&ouid=110796279110372732784&rtpof=true&sd=true)
 
 ## Datos del Departamento de Estadísticas e Información de Salud
 
@@ -136,7 +137,7 @@ Por último, recuperamos un conjunto de datos que registra el número promedio d
 * Total Semana (consultas): Total de consultas.
 * Promedio diario (consultas): Número promedio diario de consultas. 
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Coyhaique_2015_2025%20urgencias%20respiratorias.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1l7xKNUh-uYJz2jbFZq01h-k3cyyOnciZ/edit?usp=drive_link&ouid=110796279110372732784&rtpof=true&sd=true)
 
 ## Formato final
 
@@ -152,7 +153,8 @@ Los datos fueron unidos por fecha (Año-Mes-Día) en un dataset masivo que conti
 * Velocidad_viento (km/h): Velocidad del viento promedio durante el día.
 * Urgencias_respiratorias (entero positivo): Número promedio de urgencias respiratorias registradas en el día.
 
-La base de datos se puede encontrar [aquí](https://github.com/mcatalina8/Proyecto-Metodos-Bayesianos/blob/main/Data%20set%20MB.xlsx)
+La base de datos se puede encontrar [aquí](https://docs.google.com/spreadsheets/d/1wskCbwrha4uQeu0W_ivn7ZOsu-nY0pFl/edit?usp=drive_link&ouid=110796279110372732784&rtpof=true&sd=true).
+
 Tenemos 3654 registros (días) con 5 columnas. La fecha en formato año-mes-día que utilizamos como ID. Luego tenemos las variables: el mes correspondiente para saber qué estación es, CO es la concentración de monoxido de carbono, MP25 es la concentración de MP2.5, el porcentaje de humedad registrada, la temperatura promedio del día, las precipitaciones son los milimetros de lluvia registrados, la velocidad del viento promedio del día y el número promedio de urgencias respiratorias registradas.
 
 # Análisis descriptivo de los datos 
@@ -178,7 +180,7 @@ library(qpcR)
 ## Medidas de resumen
 
 ```{r}
-datos <- import("data/Data set MB.xlsx")
+datos <- import("datos/Data set MB.xlsx")
 summary(datos)
 
 ```
