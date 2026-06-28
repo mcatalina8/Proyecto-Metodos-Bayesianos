@@ -72,15 +72,15 @@ summary(Datos)
 par(mfrow = c(1, 2))
 ### Urgencias respiratorias
 hist(Datos$Urgencias_respiratorias,freq=FALSE,
-     xlab = "Casos diarios",
+     xlab = "Casos semanales",
      ylab="Densidad",
      main=expression("Distribución de Urgencias Respiratorias en Coyhaique"),
      col="coral3")
 ### MP2.5
 hist(Datos$MP25,freq=FALSE,
-     xlab = expression("MP 2.5 diario ("*mu*"g/m"^3*")"),
+     xlab = expression("MP 2.5 ("*mu*"g/m"^3*")"),
      ylab="Densidad",
-     main=expression("Distribución de MP 2.5 diario("*mu*"g/m"^3*")"),
+     main=expression("Distribución de MP 2.5 semanal ("*mu*"g/m"^3*")"),
      col="darkred")
 
 ### Matriz de correlación ###
