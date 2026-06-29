@@ -84,11 +84,18 @@ hist(Datos$MP25,freq=FALSE,
      col="darkred")
 
 ### Matriz de correlación ###
-
+par(mfrow = c(1, 1))
 vars <- Datos[,c("MP25","Humedad_relativa","Precipitaciones","Velocidad_viento","Temperatura","Urgencias_respiratorias","CO")]
 matriz <- cor(vars,use="pairwise.complete.obs")
-corrplot(matriz,addCoef.col="black")
-### mayor correlación con casos respiratorios: temp>c0>mp2.5
+# Matriz de correlación 
+corrplot(matriz, 
+         addCoef.col = "black",
+         method = "color",
+         type = "upper",
+         tl.cex = 0.9,        # Etiquetas más pequeñas
+         number.cex = 0.75,   # Coeficientes más pequeños
+         cl.cex = 0.9,        # Leyenda más pequeña
+         diag = FALSE)        # Ocultar diagonal (opcional)
 
 ### Diagramas de dispersión ###
 
