@@ -2,7 +2,8 @@ library(readxl)
 library(lubridate)
 library(dplyr)
 library(corrplot)
-datos <- read_xlsx(file.choose())
+
+datos <- read_excel("datos/Data set MB.xlsx")
 head(datos)
 
 ########################
